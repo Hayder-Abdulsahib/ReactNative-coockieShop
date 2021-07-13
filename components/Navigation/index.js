@@ -8,13 +8,14 @@ import * as types from "./types";
 import Home from "../Home";
 import BakeryList from "../BakeryList";
 import BakeryDetail from "../BakeryDetail";
-import { roundToNearestPixel } from "react-native/Libraries/Utilities/PixelRatio";
+import CartList from "../Cart/CartList";
+import CartButton from "../Cart/CartButton";
 
 const StackNavigator = () => {
   const { Screen, Navigator } = createStackNavigator();
   return (
     <Navigator
-      initialRouteName={types.HOME}
+      initialRouteName={types.BAKERY_LIST}
       screenOptions={{
         headerStyle: { backgroundColor: "black" },
         // headerTransparent: true, this will make the navigation bar transparent put you should be careful while applying it because it may affect the page
@@ -36,9 +37,16 @@ const StackNavigator = () => {
       <Screen
         name={types.BAKERY_DETAIL}
         component={BakeryDetail}
-        options={({ route }) => ({
+        options={({ navigation, route }) => ({
+          //we put navigation as an argument because we want to pass in as a prop in CartButton
           title: route.params.bakery.name,
+          headerRight: () => <CartButton navigation={navigation} />,
         })}
+      />
+      <Screen
+        name={types.CART_LIST}
+        component={CartList}
+        options={{ title: "Cart" }}
       />
     </Navigator>
   );

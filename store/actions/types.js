@@ -5,3 +5,6 @@ export const ADD_BAKERY = "ADD_BAKERY";
 //Authentication Actions
 export const SIGNUP = "SIGNUP";
 export const SET_USER = "SET_USER";
+
+//cart Actions
+// export const
