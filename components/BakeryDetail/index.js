@@ -4,8 +4,12 @@ import { View, Text } from "react-native";
 import { useSelector } from "react-redux";
 import ProductList from "../ProductList";
 
-const BakeryDetail = () => {
+const BakeryDetail = ({ route }) => {
+  const { bakery } = route.params;
   const bakeries = useSelector((state) => state.bakeries.bakeries[0]);
+
+  // bakeries = bakeries.filter((_product) => _product.bakeryId === bakery.id);
+
   console.log(bakeries);
 
   return (

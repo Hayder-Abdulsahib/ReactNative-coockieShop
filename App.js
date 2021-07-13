@@ -5,6 +5,7 @@ import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
 import { ThemeProvider } from "styled-components";
 import { NativeBaseProvider } from "native-base";
+import { NavigationContainer } from "@react-navigation/native";
 
 //redux
 import { Provider } from "react-redux";
@@ -13,21 +14,17 @@ import { Provider } from "react-redux";
 import store from "./store";
 
 //components
-import Home from "./components/Home";
-import ProductList from "./components/ProductList";
-import BakeryList from "./components/BakeryList";
-import BakeryDetail from "./components/BakeryDetail";
+import StackNavigator from "./components/Navigation";
 
 export default function App() {
   return (
     <Provider store={store}>
       <NativeBaseProvider>
-        <ThemeProvider theme={theme.dark}>
-          <Home />
-          {/* <ProductList /> */}
-          {/* <BakeryList /> */}
-          {/* <BakeryDetail /> */}
-        </ThemeProvider>
+        {/* <ThemeProvider theme={theme.dark}> */}
+        <NavigationContainer>
+          <StackNavigator />
+        </NavigationContainer>
+        {/* </ThemeProvider> */}
       </NativeBaseProvider>
     </Provider>
   );

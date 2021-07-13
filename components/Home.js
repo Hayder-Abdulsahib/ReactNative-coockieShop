@@ -9,21 +9,24 @@ import {
   TouchableOpacity,
 } from "react-native";
 
-const Home = () => {
+import { BAKERY_LIST } from "./Navigation/types";
+
+const Home = ({ navigation }) => {
   return (
-    <ImageBackground
-      style={{ flex: 1, width: "100%", height: "100%" }}
-      source={{
-        uri: "https://annabanana.co/wp-content/uploads/2020/03/Chocolate-Chip-Cookies-22.jpg",
-      }}
-    >
-      <View
-        style={{
-          height: "40%",
-          alignItems: "center",
-          justifyContent: "center",
+    <TouchableOpacity onPress={() => navigation.navigate(BAKERY_LIST)}>
+      <ImageBackground
+        style={{ width: "100%", height: "100%" }}
+        source={{
+          uri: "https://annabanana.co/wp-content/uploads/2020/03/Chocolate-Chip-Cookies-22.jpg",
         }}
       >
+        {/* <View
+          style={{
+            height: "40%",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        > */}
         <Text style={{ color: "black", fontSize: 38, textAlign: "center" }}>
           Cookies & Beyond
         </Text>
@@ -32,6 +35,7 @@ const Home = () => {
           title="What we do"
           color="#725114"
           accessibilityLabel="Learn more about this purple button"
+          style={{ width: "10px" }}
         />
         <Text>{"\n"}</Text>
         <TouchableOpacity
@@ -42,8 +46,13 @@ const Home = () => {
         >
           <Text style={{ fontSize: 19, color: "#fff" }}>Who We Are</Text>
         </TouchableOpacity>
-      </View>
-    </ImageBackground>
+
+        <Text style={{ fontSize: 19, color: "black" }}>
+          {"\n"}Check our Store
+        </Text>
+        {/* </View> */}
+      </ImageBackground>
+    </TouchableOpacity>
   );
 };
 

@@ -8,7 +8,7 @@ import styles from "./styles";
 import { Text, View } from "react-native";
 import { Box, Center, List, Spinner } from "native-base";
 
-const BakeryList = () => {
+const BakeryList = ({ navigation }) => {
   const bakeries = useSelector((state) => state.bakeries.bakeries);
   const loading = useSelector((state) => state.bakeries.loading);
 
@@ -21,7 +21,7 @@ const BakeryList = () => {
 
   //we have to use the map after the loading or it will not make sence
   const bakeryList = bakeries.map((bakery) => (
-    <BakeryItem bakery={bakery} key={bakery.id} />
+    <BakeryItem bakery={bakery} key={bakery.id} navigation={navigation} />
   ));
 
   return (
