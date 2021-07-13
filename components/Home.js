@@ -13,7 +13,10 @@ import { BAKERY_LIST } from "./Navigation/types";
 
 const Home = ({ navigation }) => {
   return (
-    <TouchableOpacity onPress={() => navigation.navigate(BAKERY_LIST)}>
+    <TouchableOpacity
+      activeOpacity={1} //if we put true instead of 1 it will misbehave and if we put false or 0 it will stop working, we put this code so we using cardStyle from the navigation there will be no wierd background color we going to another page
+      onPress={() => navigation.navigate(BAKERY_LIST)}
+    >
       <ImageBackground
         style={{ width: "100%", height: "100%" }}
         source={{

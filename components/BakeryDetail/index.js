@@ -6,16 +6,15 @@ import ProductList from "../ProductList";
 
 const BakeryDetail = ({ route }) => {
   const { bakery } = route.params;
-  const bakeries = useSelector((state) => state.bakeries.bakeries[0]);
+  console.log(route.params);
+  // const bakeries = useSelector((state) => state.bakeries.bakeries[0]);
 
   // bakeries = bakeries.filter((_product) => _product.bakeryId === bakery.id);
 
-  console.log(bakeries);
-
   return (
     <Center flex={1}>
-      <Text>{bakeries.name}</Text>
-      <ProductList productsIds={bakeries.products} />
+      <Text>{bakery.name}</Text>
+      <ProductList productsIds={bakery.products} />
     </Center>
   );
 };
